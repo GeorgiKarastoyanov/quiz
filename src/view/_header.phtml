@@ -1,0 +1,16 @@
+<header>
+    <div class="header">Quiz</div>
+</header>
+
+<?php
+
+foreach ($messages as $msg) {
+    echo $msg . PHP_EOL;
+}
+?>
+
+<?php if (isUserLogged()) { ?>
+
+<a href="index.php?target=login&action=logout" >Logout</a>
+
+<?php } ?>
