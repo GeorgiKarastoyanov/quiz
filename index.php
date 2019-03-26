@@ -17,7 +17,6 @@ try {
 
     list($controllerName, $method) = Router::resolve(Input::getData());
 
-    // Hardcoded controller name only for the project goals.
     $controller = ControllerFactory::create($controllerName);
 
     if (! method_exists($controller, $method)) {
@@ -27,7 +26,6 @@ try {
     $controller->before();
     $responseContent = $controller->$method();
 } catch (Exception $ex) {
-    dd($ex);
     $responseContent = $controller->handleException($ex);
 }
 

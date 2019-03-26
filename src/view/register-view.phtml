@@ -1,8 +1,19 @@
-<form action="index.php?target=login&action=doRegister" method="post">
-    Name<input type="text" name="name" /> <br />
-    Password<input type="password" name="pass" /><br />
-    Repeat Password<input type="password" name="repeatPass" /><br />
-    <input type="submit" name="register" value="Register">
-    <a href="index.php?target=login&action=loginView">Login Here</a>
-
-</form>
+<div class="forms">
+    <form action="index.php?target=login&action=doRegister" method="post">
+        <table >
+            <tr>
+                <td>Name<input type="text" name="name" /></td>
+            </tr>
+            <tr>
+                <td>Password<input type="password" name="pass" /></td>
+            </tr>
+            <tr>
+                <td>Repeat Password<input type="password" name="repeatPass" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="register" value="Register">
+                    <a href="index.php?target=login&action=loginView">Login Here</a></td>
+            </tr>
+        </table>
+    </form>
+</div>

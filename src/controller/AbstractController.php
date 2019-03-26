@@ -37,11 +37,7 @@ abstract class AbstractController
      */
     public function handleException(\Exception $ex)
     {
-        if ($ex instanceof CustomException) {
-            MessageHandler::getInstance()->setMessage($ex->getMessage());
-        } else if ($ex instanceof MysqlConnectException) {
-            MessageHandler::getInstance()->setMessage('Something went wrong! Please try again later!');
-        }
+        return 'Something went wrong! Message: ' . $ex->getMessage() . '!';
     }
 
     /**

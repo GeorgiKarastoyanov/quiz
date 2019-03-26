@@ -46,10 +46,56 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-.header{
+header{
     width: 100%;
     height: 15vh;
     background-color: lightblue;
     text-align: center;
     font-size: 40px;
+}
+.logout{
+    float: right;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 2%;
+}
+
+.scoresInfo{
+    width:22%;
+    float: left;
+    height: 8vh;
+    margin-left: 1% ;
+    font-size: 24px;
+}
+.allScores{
+    text-align: center;
+}
+.question{
+    width: 100%;
+    height: 7vh;
+    text-align: center;
+    float: left;
+}
+.content{
+    font-size: 32px;
+}
+.answer input{
+    font-size: 22px;
+}
+.message{
+    width: 100%;
+    height: 5vh;
+    text-align: center;
+    padding-top: 20%;
+}
+.forms{
+    width: 100%;
+    height: 30vh;
+}
+.forms form table{
+    margin: auto;
+}
+.forms form table a{
+    font-size: 18px;
+    text-decoration: none;
 }

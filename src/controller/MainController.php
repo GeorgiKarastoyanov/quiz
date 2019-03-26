@@ -15,13 +15,14 @@ class MainController extends AbstractController
      */
     public function index()
     {
-//        $this->insertQuestion();
-
         $data = ServiceFactory::create('Users')->getNextQuestion();
 
         return $this->renderView('main', $data);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function answer()
     {
         $postData = Input::postData();
@@ -29,41 +30,5 @@ class MainController extends AbstractController
         ServiceFactory::create('Users')->answer($postData);
 
         $this->redirect('main', 'index');
-    }
-
-    protected function insertQuestion()
-    {
-        $questions = [
-            0 => [
-                'question' => 'Who is the dictator of Cuba?',
-                'answers' => [
-                    0 => [
-                        'content' => 'Fidel Castro',
-                        'isCorrect' => 1,
-                    ],
-                    1 => [
-                        'content' => 'Pablo Escobar',
-                        'isCorrect' => 0,
-                    ],
-                ],
-            ]
-        ];
-
-        foreach ($questions as $data) {
-            $questionConds = [
-                'content' => $data['question'],
-            ];
-            $questionId = RepositoryFactory::create('Questions')->create($questionConds);
-
-            $answersConds = [
-                'questionId' => $questionId
-            ];
-            foreach ($data['answers'] as $answer) {
-                $answersConds['content'] = $answer['content'];
-                $answersConds['isCorrect'] = $answer['isCorrect'];
-                RepositoryFactory::create('Answers')->create($answersConds);
-            }
-        }
-        dd(123);
     }
 }

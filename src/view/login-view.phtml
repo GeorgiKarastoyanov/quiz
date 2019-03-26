@@ -1,7 +1,17 @@
-<form action="index.php?target=login&action=doLogin" method="post">
-    Name<input type="text" name="name" /> <br />
-    Password<input type="password" name="pass" /><br />
-    <input type="submit" name="login" value="Login">
-    <a href="index.php?target=login&action=registerView">Register Here</a>
 
-</form>
+<div class="forms">
+    <form action="index.php?target=login&action=doRegister" method="post">
+        <table >
+            <tr>
+                <td>Name<input type="text" name="name" /></td>
+            </tr>
+            <tr>
+                <td>Password<input type="password" name="pass" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="login" value="Login">
+                    <a href="index.php?target=login&action=registerView">Register Here</a></td>
+            </tr>
+        </table>
+    </form>
+</div>

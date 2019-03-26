@@ -1,17 +1,42 @@
 <?php if (! empty($question)) { ?>
-    Total Score = <?= $user['scores']['totalScore']; ?> <br />
-    Max Score = <?= $user['scores']['maxDailyScore']; ?> <br />
-    Daily Score = <?= $user['scores']['dailyScore']; ?> <br />
-    Remaining daily questions = <?= $config['maxDailyQuestions'] - $user['scores']['dailyAnswers']; ?>
+    <div class="allScores">
+        <div class="scoresInfo">
+            Total Score: <?= $user['scores']['totalScore']; ?>
+        </div>
+        <div class="scoresInfo">
+            Max Score: <?= $user['scores']['maxDailyScore']; ?>
+        </div>
+        <div class="scoresInfo">
+            Daily Score: <?= $user['scores']['dailyScore']; ?>
+        </div>
+        <div class="scoresInfo">
+            Remaining daily questions: <?= $config['maxDailyQuestions'] - $user['scores']['dailyAnswers']; ?>
+        </div>
+    </div>
 
-    <h2><?= $question['content']; ?></h2>
-    <form action="index.php?target=main&action=answer" method="post">
-        <?php foreach ($question['answers'] as $key => $answer) { ?>
-            <?= $alphabet[$key]; ?>. <input type="radio" name="answerId" value="<?= $answer['id']; ?>" /> <?= $answer['content']; ?><br />
+    <div class="question content">
+        <h2><?= $question['content']; ?></h2><br>
+    </div>
+    <div class="question answer">
+        <form  action="index.php?target=main&action=answer" method="post">
+            <?php foreach ($question['answers'] as $key => $answer) { ?>
+                <div >
+                    <?= $alphabet[$key]; ?>. <input type="radio" name="answerId" value="<?= $answer['id']; ?>" /> <?= $answer['content']; ?>
+                </div>
+            <?php } ?>
+            <input type="hidden" name="questionId" value="<?= $question['id']; ?>"/><br />
+            <input type="submit" name="answer" value="Answer"/>
+        </form>
         <?php } ?>
-        <input type="hidden" name="questionId" value="<?= $question['id']; ?>"/><br />
-        <input type="submit" name="answer" value="Answer"/>
-    </form>
-<?php } ?>
+    </div>
+<div class="message">
+    <?php
+
+    foreach ($messages as $msg) {
+        echo $msg . PHP_EOL;
+    }
+    ?>
+
+</div>
 
 
